@@ -1,7 +1,7 @@
-geojson==2.3.0
-geopy==1.11.0
-networkx==2.1
-numpy==1.12.1
-osmnx==0.8.1
-Shapely==1.6.2.post1
-scipy==0.19.1
+geojson
+geopy
+networkx
+numpy
+osmnx
+Shapely
+scipy
