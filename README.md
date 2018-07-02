@@ -4,7 +4,7 @@ Python 3 module for generatings isochrones from point
 
 ## How to install
 
-You can install python-digitalocean using **pip**
+You can install pychrone using **pip**
 
     pip install -U pychrone
 
