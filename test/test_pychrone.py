@@ -1,5 +1,5 @@
-import pychrone
 import pytest
+import pychrone
 
 
 def test_negative():
