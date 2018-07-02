@@ -4,4 +4,3 @@ networkx==2.1
 numpy==1.14.2
 osmnx==0.8.1
 Shapely==1.6.2.post1
-coverage==4.5.1
