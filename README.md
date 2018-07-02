@@ -1,4 +1,5 @@
-##pychrone
+pychrone
+=============
 Python 3 module for generatings isochrones from point
 
 ## How to install
@@ -20,6 +21,8 @@ If you have serveral python versions installed you will probably use **pip3** an
 This module generates walking [isochrone](https://en.wiktionary.org/wiki/isochrone) from the set point with defined latitude and longtitude with defined time.
 
 All details of walking routes and coordinates are from OpenStreetMap, so you will need an internet connection for this module to work.
+
+Also module will try to optimize isochrone shape with [α-shape algorithm](https://en.wikipedia.org/wiki/Alpha_shape) to make it more natural and clean.
 
 Main function of module takes the following arguments:
 
