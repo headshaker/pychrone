@@ -1,5 +1,13 @@
 pychrone
 =============
+
+.. image:: https://api.travis-ci.org/headshaker/pychrone.svg?branch=master
+   :target: http://travis-ci.org/headshaker/pychrone
+.. image:: https://img.shields.io/pypi/v/pychrone.svg
+   :target: https://pypi.python.org/pypi/pychrone
+.. image:: https://img.shields.io/pypi/pyversions/pychrone.svg
+   :target: https://pypi.python.org/pypi/pychrone
+
 Python 3 module for generatings isochrones from point
 
 ## How to install
