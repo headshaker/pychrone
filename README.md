@@ -1,4 +1,4 @@
-#pychrone
+##pychrone
 Python 3 module for generatings isochrones from point
 
 ## How to install
