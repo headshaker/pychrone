@@ -7,12 +7,12 @@ import geojson as gj
 import geopy.distance
 
 
-def Create_isochrone(lon, lat, time, speed=4.5, output='geojson'):
+def Create_isochrone(lon, lat, time, speed=4.5, output='geojson', route='walk'):
     def GenerateIsoPoints(lon, lat, time, speed):
 
         distance = speed * 1000 / 60 * time * 1.5
 
-        streets_graph = ox.graph_from_point([lat, lon], distance=distance, network_type='walk', simplify=False)
+        streets_graph = ox.graph_from_point([lat, lon], distance=distance, network_type=route, simplify=False)
 
         center_node = ox.get_nearest_node(streets_graph, (lat, lon), method='euclidean')
 
