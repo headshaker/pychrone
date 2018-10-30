@@ -77,15 +77,16 @@ def Create_isochrone(lon, lat, time, speed=4.5, output='geojson', route='walk'):
 
     iso_points = GenerateIsoPoints(lon, lat, time, speed)
     isochrone = None
-    for alpha in range(0, 750, 50):
+    for alpha in range(751, -1, -50):
         try:
-            concave_hull, edge_points = alpha_shape(iso_points, alpha=700 - alpha)
-            isochrone = geometry.polygon.orient(concave_hull, sign=1)
+            concave_hull, edge_points = alpha_shape(iso_points, alpha=alpha)
 
             if concave_hull.geom_type == 'MultiPolygon':
                 continue
+                
             else:
                 if output == 'geojson':
+                    isochrone = geometry.polygon.orient(concave_hull, sign=1)
                     return gj.loads(gj.dumps(isochrone))
                 elif output == 'shape':
                     return isochrone
