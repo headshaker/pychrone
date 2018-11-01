@@ -14,6 +14,8 @@ Python 3 module for generatings isochrones from point
 History
 -------
 
+0.0.3 - Corrected alpha-shape optimization.
+
 0.0.2 - Added several types of isochrone generation: walking, driving or biking.
 
 0.0.1 - Initial version, only walking isochrones supported.

@@ -8,7 +8,25 @@ import geopy.distance
 
 
 def Create_isochrone(lon, lat, time, speed=4.5, output='geojson', route='walk'):
+
+    '''
+    Main module function. Takes:
+        lat, lon of point to build isochrone from, 
+        time of travel to limit isochrone,
+        speed of travel (default is 4.5),
+        output format - geojson or shape,
+        route type - walk, drive, bike;
+    Returns isochrone polygon in geojson or shape.
+    '''
+
     def GenerateIsoPoints(lon, lat, time, speed):
+
+        '''
+        Function generates points cloud of isochrone from OSM
+        depending on route type.
+
+        Returns list of points.
+        '''
 
         distance = speed * 1000 / 60 * time * 1.5
 
@@ -35,6 +53,10 @@ def Create_isochrone(lon, lat, time, speed=4.5, output='geojson', route='walk'):
         return points
 
     def alpha_shape(points, alpha):
+
+        '''
+        Function optimizes ishorhone with alpha-shape algorythm and returns polgon
+        '''
 
         if len(points) < 4:
             return geometry.MultiPoint(list(points)).convex_hull
