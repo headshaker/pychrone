@@ -11,7 +11,7 @@ def Create_isochrone(lon, lat, time, speed=4.5, output='geojson', route='walk'):
 
     '''
     Main module function. Takes:
-        lat, lon of point to build isochrone from, 
+        lat, lon of point to build isochrone from,
         time of travel to limit isochrone,
         speed of travel (default is 4.5),
         output format - geojson or shape,
@@ -24,19 +24,18 @@ def Create_isochrone(lon, lat, time, speed=4.5, output='geojson', route='walk'):
         '''
         Function generates points cloud of isochrone from OSM
         depending on route type.
-
         Returns list of points.
         '''
 
         distance = speed * 1000 / 60 * time * 1.5
 
-        streets_graph = ox.graph_from_point([lat, lon], distance=distance, network_type=route, simplify=False)
+        streets_graph = ox.graph_from_point([lat, lon], dist=distance, network_type=route, simplify=False)
 
         center_node = ox.get_nearest_node(streets_graph, (lat, lon), method='euclidean')
 
         streets_graph.add_node('dummy', osmid=999999999, x=lon, y=lat)
-        dummy_length = geopy.distance.vincenty((streets_graph.node['dummy']['y'], streets_graph.node['dummy']['x']),
-                                               (streets_graph.node[center_node]['y'], streets_graph.node[center_node]['x'])).m
+        dummy_length = geopy.distance.geodesic((streets_graph.nodes['dummy']['y'], streets_graph.nodes['dummy']['x']),
+                                               (streets_graph.nodes[center_node]['y'], streets_graph.nodes[center_node]['x'])).m
         streets_graph.add_edge('dummy', center_node, length=dummy_length)
 
         projected_graph = ox.project_graph(streets_graph)
@@ -105,7 +104,7 @@ def Create_isochrone(lon, lat, time, speed=4.5, output='geojson', route='walk'):
 
             if concave_hull.geom_type == 'MultiPolygon':
                 continue
-                
+
             else:
                 if output == 'geojson':
                     isochrone = geometry.polygon.orient(concave_hull, sign=1)
